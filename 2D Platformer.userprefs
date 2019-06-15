@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="2D Platformer.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\EnemyScripts\EnemyController.cs">
+    <Files>
+      <File FileName="Assets\EnemyScripts\EnemyController.cs" Line="25" Column="89" />
+      <File FileName="Assets\EnemyScripts\EnemyGlobals.cs" Line="3" Column="26" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
