@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour {
 
-	// Use this for initialization
 	void Start () {
-		
 	}
-	
 	public float GetHorizontal () {
 		return Input.GetAxisRaw("Horizontal");
 	}
 	public float GetVertical () {
 		return Input.GetAxisRaw("Vertical");
+	}
+	public bool GetShoot () {
+		return Input.GetMouseButton(1);
+	}
+	public Vector2 GetShootDirection () {
+		Vector2 direction = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+		direction.Normalize();
+		return direction;
 	}
 }

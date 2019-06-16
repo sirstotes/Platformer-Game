@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class HealthController : MonoBehaviour {
+	public bool projectile = false;
 	public float damage = 0;
 	private float maxHealth;
 	public float health = 0;
@@ -40,7 +41,7 @@ public class HealthController : MonoBehaviour {
 		}
 	}
 	void OnCollisionEnter2D(Collision2D other) {
-		if(whatIsHarmful == (whatIsHarmful | (1 << other.gameObject.layer))) {
+		if(whatIsHarmful == (whatIsHarmful | (1 << other.gameObject.layer)) || projectile) {
 			if(other.gameObject.GetComponent<HealthController>() == null) {
 				health = 0;
 			} else {
@@ -50,7 +51,7 @@ public class HealthController : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other) {
 		if(whatIsHarmful == (whatIsHarmful | (1 << other.gameObject.layer))) {
-			if(other.gameObject.GetComponent<HealthController>() == null) {
+			if(other.gameObject.GetComponent<HealthController>() == null || projectile) {
 				health = 0;
 			} else {
 				health -= other.gameObject.GetComponent<HealthController>().damage;

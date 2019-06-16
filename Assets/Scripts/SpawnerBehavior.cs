@@ -7,6 +7,7 @@ public class SpawnerBehavior : MonoBehaviour {
 	private List<GameObject> spawnedObjects = new List<GameObject>();
 	public Vector2 minPosition;
 	public Vector2 maxPosition;
+	public Vector2 startVelocity;
 	public bool isParent = true;
 	public bool alwaysActive = false;
 	public int max = 0;
@@ -20,7 +21,7 @@ public class SpawnerBehavior : MonoBehaviour {
 	}
 	
 	void Update () {
-		if(alwaysActive && spawnedObjects.Count < max) {
+		if(alwaysActive && (spawnedObjects.Count < max || max == 0)) {
 			counter += Time.deltaTime;
 			if(counter >= currentSpawnTime) {
 				counter = 0;
@@ -44,6 +45,7 @@ public class SpawnerBehavior : MonoBehaviour {
 			} else {
 				spawnedObjects.Add(Instantiate(obj, transform.position+pos, Quaternion.identity));
 			}
+			spawnedObjects[spawnedObjects.Count-1].GetComponent<Rigidbody2D>().velocity = startVelocity;
 		}
 	}
 }
